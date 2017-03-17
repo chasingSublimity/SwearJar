@@ -14,6 +14,6 @@ describe('App component', function() {
 		const result = renderer.getRenderOutput();
 		console.log(result);
 		result.props.className.should.equal('app');
-		result.props.children.should.equal('Hello Big World');
+		result.props.children.should.equal('Hello Big World!');
 	});
 });
