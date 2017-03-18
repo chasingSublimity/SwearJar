@@ -7,8 +7,8 @@ export default class AnalyticsDisplay extends React.Component {
 
 	render() {
 		return(
-			<div className="analytics-display">
-				<p>THIS IS THE ANAlYTICSDISPLAY</p>
+			<div className="analytics-display grey-box">
+				<p>THIS IS THE ANALYTICSDISPLAY</p>
 			</div>
 		);
 	}
