@@ -7,13 +7,15 @@ const should = chai.should();
 import App from '../js/components/app';
 
 describe('App component', function() {
-	it('renders the app',  function() {
+	it('renders the app component',  function() {
 
 		const renderer = TestUtils.createRenderer();
 		renderer.render(<App />);
 		const result = renderer.getRenderOutput();
-		console.log(result);
+		console.log(result.props.children[0]);
 		result.props.className.should.equal('app');
-		result.props.children.should.equal('Hello Big World!');
+		result.props.children.should.be.an('array');
+		result.props.children.should.have.length.of(3);
+		result.props.children[0].should.be.an('object');
 	});
 });
