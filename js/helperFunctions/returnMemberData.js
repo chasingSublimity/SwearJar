@@ -3,7 +3,7 @@ const url = 'https://api.groupme.com/v3/groups/16580230?token=04d95e40dab101340a
 const options = {'limit': 100};
 
 // make a get request to groupme api. pass data to sortMemberData callback
-function returnMemberData() {
+export default function returnMemberData() {
 	$.getJSON(url, options, function(data) {
 		sortMemberData(data.response.members);});
 }
@@ -19,5 +19,3 @@ function sortMemberData(data) {
 	console.log(memberArray);
 	return memberArray;
 }
-
-export default returnMemberData(); 
