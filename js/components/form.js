@@ -18,7 +18,7 @@ export class Form extends React.Component {
 		return(
 			<div className="form grey-box">
 				<p>THIS IS THE FORM</p>
-				<form>
+				<form onChange={this.handleChange}>
 					<input type="text"/>
 					<input type="submit"/>
 				</form>
