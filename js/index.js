@@ -5,8 +5,6 @@ import {Provider} from 'react-redux';
 import App from './components/app';
 
 import store from './store';
-import {reducer} from './reducers/index';
-import * as actions from './actions/index';
 
 
 

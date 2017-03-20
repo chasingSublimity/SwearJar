@@ -15,7 +15,7 @@ describe('App component', function() {
 		console.log(result.props.children[0]);
 		result.props.className.should.equal('app');
 		result.props.children.should.be.an('array');
-		result.props.children.should.have.length.of(3);
+		result.props.children.should.have.length.of(4);
 		result.props.children[0].should.be.an('object');
 	});
 });
