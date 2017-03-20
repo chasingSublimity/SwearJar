@@ -1,3 +1,15 @@
+body {
+  box-sizing: border-box;
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+#app {
+	margin-top: 50px;
+}
+
 .grey-box {
   background: grey;
   text-align: center;
