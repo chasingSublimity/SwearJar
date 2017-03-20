@@ -1,9 +1,15 @@
 import React from 'react';
 
-// change form input
-export const CHANGE_INPUT = 'CHANGE_INPUT';
-export const changeInput = value =>({
-	type: CHANGE_INPUT, 
+// change API form input
+export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
+export const changeApiKeyInput = value =>({
+	type: CHANGE_API_KEY_INPUT, 
+	value
+});
+
+export const CHANGE_GROUP_ID_INPUT = 'CHANGE_GROUP_ID_INPUT';
+export const changeGroupIdInput = value =>({
+	type: CHANGE_GROUP_ID_INPUT, 
 	value
 });
 
