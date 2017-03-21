@@ -19,13 +19,14 @@ export const changeGroupIdInput = value =>({
 export const submitApiForm = () => dispatch => {
 	const url = 'https://api.groupme.com/v3/groups/16580230?token=04d95e40dab101340a2c1d11b5667958';
 	const options = {'limit': 100};
-	return $.ajax(url, options).then(response => {
-		console.log(response);
+	return $.ajax(url, options).then(data => {
+		console.log(data);
+		return dispatch(submitApiFormSuccess(data.response.members));
 	});
 };
 
 export const SUBMIT_API_FORM_SUCCESS = 'SUBMIT_API_FORM_SUCCESS';
-export const fetchFewestGuessesSuccess = memberArray => ({
+export const submitApiFormSuccess = memberArray => ({
 	type: SUBMIT_API_FORM_SUCCESS,
 	memberArray
 });
