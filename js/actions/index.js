@@ -1,5 +1,4 @@
 import React from 'react';
-import getAndSortMemberData from '../reducers/apiCall';
 import $ from 'jquery';
 
 // change API Key form input
