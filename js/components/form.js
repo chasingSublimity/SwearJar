@@ -21,9 +21,10 @@ export class Form extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		const submittedValue = this.props.searchInputValue;
-
-
+		const apiKey = this.props.apiKeyInputValue;
+		const groupId = this.props.groupIdInputValue;
+		console.log('form submitted');
+		this.props.dispatch(actions.submitApiForm());
 	}
 
 	render() {
@@ -41,7 +42,8 @@ export class Form extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-	guessInputValue: state.searchInputValue,
+	apiKeyInputValue: state.apiKeyInputValue,
+	groupIdInputValue: state.groupIdInputValue
 });
 
 export default connect(mapStateToProps)(Form);
