@@ -15,6 +15,13 @@ export const changeGroupIdInput = value =>({
 	value
 });
 
+// change Group Id form input
+export const CHANGE_USER_SUBMIT_INPUT = 'CHANGE_USER_SUBMIT_INPUT';
+export const changeUserSubmitInput = value =>({
+	type: CHANGE_USER_SUBMIT_INPUT, 
+	value
+});
+
 // submit Api Form
 export const submitApiForm = () => dispatch => {
 	const url = 'https://api.groupme.com/v3/groups/16580230?token=04d95e40dab101340a2c1d11b5667958';

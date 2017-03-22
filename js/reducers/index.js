@@ -4,7 +4,7 @@ const initialState = {
 	apiKeyInputValue: '',
 	groupIdInputValue: '',
 	memberBank: [],
-	selectedMember: null,
+	userSelectInputValue: null,
 	swearCounter: null,
 	groups: [], 
 	selectedGroups: []
@@ -21,6 +21,10 @@ export const reducer = (state=initialState, action) => {
 
 	case actions.CHANGE_GROUP_ID_INPUT:
 		newState = Object.assign({}, state, {groupIdInputValue: action.value});
+		return newState;
+
+	case actions.CHANGE_USER_SUBMIT_INPUT:
+		newState = Object.assign({}, state, {userSelectInputValue: action.value});
 		return newState;
 
 	case actions.SUBMIT_API_FORM_SUCCESS:
