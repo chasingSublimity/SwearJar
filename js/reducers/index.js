@@ -5,7 +5,9 @@ const initialState = {
 	groupIdInputValue: '',
 	memberBank: [],
 	selectedMember: null,
-	swearCounter: null
+	swearCounter: null,
+	groups: [], 
+	selectedGroups: []
 };
 
 export const reducer = (state=initialState, action) => {

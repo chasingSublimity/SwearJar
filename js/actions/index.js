@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+import axios from 'axios';
 
 // change API Key form input
 export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
@@ -18,10 +18,11 @@ export const changeGroupIdInput = value =>({
 // submit Api Form
 export const submitApiForm = () => dispatch => {
 	const url = 'https://api.groupme.com/v3/groups/16580230?token=04d95e40dab101340a2c1d11b5667958';
-	const options = {'limit': 100};
-	return $.ajax(url, options).then(data => {
-		console.log(data);
-		return dispatch(submitApiFormSuccess(data.response.members));
+	// const options = {'limit': 5};
+	return axios.get(url /*, options*/).then(apiResponse => {
+		// While we do not all of the data for each member contained in the api response,
+		// each entire member object is fed into the dispatch function.
+		return dispatch(submitApiFormSuccess(apiResponse.data.response.members));
 	});
 };
 
