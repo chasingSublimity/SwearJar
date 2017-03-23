@@ -11,7 +11,9 @@ export class GroupSelect extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.dispatch(actions.selectGroup(this.props.groupSelectInputValue));
+		const selectedGroup = this.props.groups.find(group => group.name === this.props.groupSelectInputValue);
+		console.log(selectedGroup);
+		this.props.dispatch(actions.selectGroup(selectedGroup.name, selectedGroup.id));
 	}
 
 	handleChange(event) {

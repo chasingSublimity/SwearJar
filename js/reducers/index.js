@@ -7,7 +7,7 @@ const initialState = {
 	groupSelectInputValue: null,
 	swearCounter: null,
 	groups: [], 
-	selectedGroup: []
+	selectedGroup: {}
 };
 
 export const reducer = (state=initialState, action) => {
@@ -28,7 +28,7 @@ export const reducer = (state=initialState, action) => {
 		return newState;
 
 	case actions.SELECT_GROUP:
-		newState = Object.assign({}, state, {selectedGroup: action.value});
+		newState = Object.assign({}, state, {selectedGroup: {[action.groupName]: action.groupId}});
 		return newState;
 
 	case actions.SUBMIT_API_FORM_SUCCESS:

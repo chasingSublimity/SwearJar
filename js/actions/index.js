@@ -24,9 +24,10 @@ export const changeGroupSubmitInput = value =>({
 
 // select group
 export const SELECT_GROUP = 'SELECT_GROUP';
-export const selectGroup = value =>({
+export const selectGroup = (groupName, groupId) =>({
 	type: SELECT_GROUP, 
-	value
+	groupName,
+	groupId
 });
 
 // submit Api Form
