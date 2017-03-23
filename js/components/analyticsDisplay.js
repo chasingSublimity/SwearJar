@@ -1,6 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../actions/index';
 
-export default class AnalyticsDisplay extends React.Component {
+export class AnalyticsDisplay extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -12,5 +14,10 @@ export default class AnalyticsDisplay extends React.Component {
 			</div>
 		);
 	}
-
 }
+
+const mapStateToProps = (state, props) => ({
+	memberBank: state.memberBank
+});
+
+export default connect(mapStateToProps)(AnalyticsDisplay);
