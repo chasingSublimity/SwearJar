@@ -16,27 +16,26 @@ export const changeGroupIdInput = value =>({
 });
 
 // change Group Id form input
-export const CHANGE_USER_SUBMIT_INPUT = 'CHANGE_USER_SUBMIT_INPUT';
-export const changeUserSubmitInput = value =>({
-	type: CHANGE_USER_SUBMIT_INPUT, 
+export const CHANGE_GROUP_SUBMIT_INPUT = 'CHANGE_USER_SUBMIT_INPUT';
+export const changeGroupSubmitInput = value =>({
+	type: CHANGE_GROUP_SUBMIT_INPUT, 
 	value
 });
 
 // submit Api Form
 export const submitApiForm = () => dispatch => {
-	const url = 'https://api.groupme.com/v3/groups/16580230?token=04d95e40dab101340a2c1d11b5667958';
+	const url = 'https://api.groupme.com/v3/groups?token=04d95e40dab101340a2c1d11b5667958';
 	// const options = {'limit': 5};
 	return axios.get(url /*, options*/).then(apiResponse => {
-		// While we do not all of the data for each member contained in the api response,
-		// each entire member object is fed into the dispatch function.
-		return dispatch(submitApiFormSuccess(apiResponse.data.response.members));
+		// dispatch action with groups returned by api
+		return dispatch(submitApiFormSuccess(apiResponse.data.response));
 	});
 };
 
 export const SUBMIT_API_FORM_SUCCESS = 'SUBMIT_API_FORM_SUCCESS';
-export const submitApiFormSuccess = memberArray => ({
+export const submitApiFormSuccess = groupArray => ({
 	type: SUBMIT_API_FORM_SUCCESS,
-	memberArray
+	groupArray
 });
 
 
