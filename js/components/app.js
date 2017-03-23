@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header';
 import SettingsModal from './settingsModal';
-import UserSelect from './userSelect';
+import GroupSelect from './groupSelect';
 import AnalyticsDisplay from './analyticsDisplay';
 
 export default class App extends React.Component {
@@ -14,7 +14,7 @@ export default class App extends React.Component {
 			<div className="app">
 				<Header />
 				<SettingsModal />
-				<UserSelect />
+				<GroupSelect />
 				<AnalyticsDisplay />
 			</div>
 		);
