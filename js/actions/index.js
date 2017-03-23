@@ -16,7 +16,7 @@ export const changeGroupIdInput = value =>({
 });
 
 // change Group Id form input
-export const CHANGE_GROUP_SUBMIT_INPUT = 'CHANGE_USER_SUBMIT_INPUT';
+export const CHANGE_GROUP_SUBMIT_INPUT = 'CHANGE_GROUP_SUBMIT_INPUT';
 export const changeGroupSubmitInput = value =>({
 	type: CHANGE_GROUP_SUBMIT_INPUT, 
 	value
