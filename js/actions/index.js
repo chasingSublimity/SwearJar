@@ -22,6 +22,13 @@ export const changeGroupSubmitInput = value =>({
 	value
 });
 
+// select group
+export const SELECT_GROUP = 'SELECT_GROUP';
+export const selectGroup = value =>({
+	type: SELECT_GROUP, 
+	value
+});
+
 // submit Api Form
 export const submitApiForm = () => dispatch => {
 	const url = 'https://api.groupme.com/v3/groups?token=04d95e40dab101340a2c1d11b5667958';

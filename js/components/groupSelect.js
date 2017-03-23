@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
-// USE AUTOCOMPLETE SEARCH INPUT
-
 export class GroupSelect extends React.Component {
 	constructor(props) {
 		super(props);
@@ -13,7 +11,7 @@ export class GroupSelect extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log(this.props.groupSelectInputValue);
+		this.props.dispatch(actions.selectGroup(this.props.groupSelectInputValue));
 	}
 
 	handleChange(event) {
