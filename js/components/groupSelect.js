@@ -4,7 +4,7 @@ import * as actions from '../actions/index';
 
 // USE AUTOCOMPLETE SEARCH INPUT
 
-export class UserSelect extends React.Component {
+export class GroupSelect extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,25 +13,25 @@ export class UserSelect extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		console.log(this.props.userSelectInputValue);
+		console.log(this.props.groupSelectInputValue);
 	}
 
 	handleChange(event) {
 		const inputValue = event.target.value;
-		this.props.dispatch(actions.changeUserSubmitInput(inputValue));
+		this.props.dispatch(actions.changeGroupSubmitInput(inputValue));
 	}
 
 	render() {
-		let members = this.props.memberBank.map((memberObject, index) =>
-			<option key={index}value={memberObject.nickname} />
+		let groups = this.props.groups.map((groupObject, index) =>
+			<option key={index} value={groupObject.name} />
 		);
 		return(
 			<div className="user-select grey-box">
 				<form onSubmit={this.handleSubmit}>
-					<label>Choose a user from this list:
-					<input list="users" name="selectedUser" onChange={this.handleChange} /></label>
-					<datalist id="users">
-						{members}
+					<label>Choose a group from this list:
+					<input list="groups" name="selectedGroup" onChange={this.handleChange} /></label>
+					<datalist id="groups">
+						{groups}
 					</datalist>
 					<input type="submit" />
 				</form>
@@ -42,7 +42,8 @@ export class UserSelect extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	memberBank: state.memberBank,
-	userSelectInputValue: state.userSelectInputValue
+	userSelectInputValue: state.userSelectInputValue,
+	groups: state.groups
 });
 
-export default connect(mapStateToProps)(UserSelect);
+export default connect(mapStateToProps)(GroupSelect);
