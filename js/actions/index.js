@@ -25,7 +25,7 @@ export const changeGroupSubmitInput = value =>({
 
 
 export const submitGroupChoiceForm = (groupName, groupId) => dispatch => {
-	const url = 'https://api.groupme.com/v3/groups/16580230/messages?token=04d95e40dab101340a2c1d11b5667958';
+	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?token=04d95e40dab101340a2c1d11b5667958`;
 	// const url = `https://api.groupme.com/v3/groups/16580230/messages?token=${groupId}`;
 	const options = {limit:100};
 	return axios.get(url, options).then(apiResponse => {
@@ -48,8 +48,7 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) =>(
 export const submitApiSettingsForm = (apiKey) => dispatch => {
 	// const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
 	const url = 'https://api.groupme.com/v3/groups?token=04d95e40dab101340a2c1d11b5667958';
-	// const options = {'limit': 5};
-	return axios.get(url /*, options*/).then(apiResponse => {
+	return axios.get(url).then(apiResponse => {
 		// dispatch action with groups returned by api
 		return dispatch(submitApiFormSuccess(apiResponse.data.response, apiKey));
 	});
