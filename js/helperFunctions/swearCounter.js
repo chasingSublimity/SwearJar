@@ -20,7 +20,6 @@ function sortAndTokenizeData(messages) {
 	for (let user in userMessages) {
 		tokenizedUserMessages[user] = tokenizeData(userMessages[user]);
 	}
-	console.log(tokenizedUserMessages);
 	return tokenizedUserMessages;
 }
   
@@ -55,5 +54,6 @@ function tallySwearWords(userMessageObject) {
 }
 
 export default function swearCounter(messageArray) {
+	// returns sorted and tokenized data
 	return tallySwearWords(sortAndTokenizeData(messageArray));
 }
