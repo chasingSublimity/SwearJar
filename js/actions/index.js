@@ -27,20 +27,20 @@ export const changeGroupSubmitInput = value =>({
 export const submitGroupChoiceForm = (groupName, groupId) => dispatch => {
 	const url = 'https://api.groupme.com/v3/groups/16580230/messages?token=04d95e40dab101340a2c1d11b5667958';
 	// const url = `https://api.groupme.com/v3/groups/16580230/messages?token=${groupId}`;
-	const options = {limit:50};
+	const options = {limit:100};
 	return axios.get(url, options).then(apiResponse => {
-		const userObject = swearCounter(apiResponse.data.response.messages);
-		console.log(userObject);
-		return dispatch(submitGroupChoiceSuccess(groupName, groupId));
+		const userSwearCount = swearCounter(apiResponse.data.response.messages);
+		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
 	});
 };
 
 // select group
 export const SUBMIT_GROUP_CHOICE_FORM_SUCCESS = 'SUBMIT_GROUP_CHOICE_FORM_SUCCESS';
-export const submitGroupChoiceSuccess = (groupName, groupId) =>({
+export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) =>({
 	type: SUBMIT_GROUP_CHOICE_FORM_SUCCESS, 
 	groupName,
-	groupId
+	groupId,
+	userSwearCount
 });
 
 
