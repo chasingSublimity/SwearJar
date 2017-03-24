@@ -32,7 +32,7 @@ export const reducer = (state=initialState, action) => {
 		return newState;
 
 	case actions.SUBMIT_API_FORM_SUCCESS:
-		newState = Object.assign({}, state, {groups: [...action.groupArray]});
+		newState = Object.assign({}, state, {groups: [...action.groupArray]}, {apiKey: action.apiKey});
 		return newState;
 	}
 

@@ -45,14 +45,15 @@ export const submitApiSettingsForm = (apiKey) => dispatch => {
 	// const options = {'limit': 5};
 	return axios.get(url /*, options*/).then(apiResponse => {
 		// dispatch action with groups returned by api
-		return dispatch(submitApiFormSuccess(apiResponse.data.response));
+		return dispatch(submitApiFormSuccess(apiResponse.data.response, apiKey));
 	});
 };
 
 export const SUBMIT_API_FORM_SUCCESS = 'SUBMIT_API_FORM_SUCCESS';
-export const submitApiFormSuccess = groupArray => ({
+export const submitApiFormSuccess = (groupArray, apiKey) => ({
 	type: SUBMIT_API_FORM_SUCCESS,
-	groupArray
+	groupArray,
+	apiKey
 });
 
 

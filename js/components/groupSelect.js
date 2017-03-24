@@ -43,7 +43,8 @@ export class GroupSelect extends React.Component {
 const mapStateToProps = (state, props) => ({
 	memberBank: state.memberBank,
 	userSelectInputValue: state.userSelectInputValue,
-	groups: state.groups
+	groups: state.groups,
+	groupSelectInputValue: state.groupSelectInputValue
 });
 
 export default connect(mapStateToProps)(GroupSelect);
