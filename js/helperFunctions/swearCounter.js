@@ -20,6 +20,7 @@ function sortAndTokenizeData(messages) {
 	for (let user in userMessages) {
 		tokenizedUserMessages[user] = tokenizeData(userMessages[user]);
 	}
+	console.log(tokenizedUserMessages);
 	return tokenizedUserMessages;
 }
   
@@ -27,7 +28,7 @@ function tokenizeData(messageArray) {
 										//filters out falsy values, joins into one array of lowercase strings
 	return messageArray.filter(Boolean).join().toLowerCase()
 											// removes punctuation
-											.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g,' ')
+											.replace(/[.,\/#!"?$%\^&\*;:{}=\-_`~()]/g,' ')
 											// removes extra white space
 											.replace(/\s{2,}/g,' ').trim()
 											// splits into individual words
