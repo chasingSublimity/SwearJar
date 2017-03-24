@@ -2,7 +2,7 @@ import * as actions from '../actions/index';
 
 const initialState = {
 	apiKeyInputValue: '',
-	groupIdInputValue: '',
+	apiKey: '',
 	memberBank: [],
 	groupSelectInputValue: null,
 	swearCounter: null,

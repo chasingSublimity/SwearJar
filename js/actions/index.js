@@ -22,6 +22,12 @@ export const changeGroupSubmitInput = value =>({
 	value
 });
 
+
+// export const submitGroupChoiceForm = () => dispatch => {
+// 	const 
+// }
+
+
 // select group
 export const SELECT_GROUP = 'SELECT_GROUP';
 export const selectGroup = (groupName, groupId) =>({
@@ -30,8 +36,11 @@ export const selectGroup = (groupName, groupId) =>({
 	groupId
 });
 
+
 // submit Api Form
-export const submitApiForm = () => dispatch => {
+export const submitApiSettingsForm = (apiKey) => dispatch => {
+	console.log(apiKey);
+	// const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
 	const url = 'https://api.groupme.com/v3/groups?token=04d95e40dab101340a2c1d11b5667958';
 	// const options = {'limit': 5};
 	return axios.get(url /*, options*/).then(apiResponse => {

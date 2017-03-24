@@ -12,19 +12,14 @@ export class SettingsModal extends React.Component {
 	// this function is passed to both inputs. The id of the element dictates which action is dispatched.
 	handleChange(event) {
 		const inputValue = event.target.value;
-		if (event.target.id === 'api-key') {
-			this.props.dispatch(actions.changeApiKeyInput(inputValue));
-		} else {
-			this.props.dispatch(actions.changeGroupIdInput(inputValue));
-		}
+		this.props.dispatch(actions.changeApiKeyInput(inputValue));
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
 		// put apiKey and groupId in state
 		const apiKey = this.props.apiKeyInputValue;
-		const groupId = this.props.groupIdInputValue;
-		this.props.dispatch(actions.submitApiForm());
+		this.props.dispatch(actions.submitApiSettingsForm(apiKey));
 	}
 
 	render() {
@@ -33,7 +28,6 @@ export class SettingsModal extends React.Component {
 				<p>THIS IS THE SETTINGS MODAL</p>
 				<form onSubmit={this.handleSubmit}>
 					<input required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
-					<input required id="group-id" placeholder="Group Id" onChange={this.handleChange} type="text"/><br/>
 					<input type="submit"/>
 				</form>
 			</div>
