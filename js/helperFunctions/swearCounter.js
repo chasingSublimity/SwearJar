@@ -1,8 +1,4 @@
-import axios from 'axios';
 import curseDictionary from './curseDictionary';
-
-var baseURL = 'https://api.groupme.com/v3/groups/16580230/messages?token=04d95e40dab101340a2c1d11b5667958';
-var options = {limit: 50};
 
 function sortAndTokenizeData(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
@@ -28,7 +24,7 @@ function sortAndTokenizeData(messages) {
 }
   
 function tokenizeData(messageArray) {
-										//filters out falsy values, joins into one array
+										//filters out falsy values, joins into one array of lowercase strings
 	return messageArray.filter(Boolean).join().toLowerCase()
 											// removes punctuation
 											.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g,' ')
@@ -53,18 +49,10 @@ function tallySwearWords(userMessageObject) {
 		// initialize a key(user):value(# of swear words)
 		userSwearTally[user] = swearTally;
 	}
+	// return object with users (key) and # of swears (value)
 	return userSwearTally;
 }
 
-function getSortTokenizeAndTallyData() {
-	axios.get(baseURL, options)
-	.then(apiResponse => {
-		return sortAndTokenizeData(apiResponse.data.response.messages);
-	})
-	.then(data => {
-		console.log(data);
-		console.log(tallySwearWords(data));
-	});
+export default function swearCounter(messageArray) {
+	return tallySwearWords(sortAndTokenizeData(messageArray));
 }
-
-export default getSortTokenizeAndTallyData;
