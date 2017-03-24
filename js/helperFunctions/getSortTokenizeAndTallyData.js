@@ -35,7 +35,7 @@ function tokenizeData(messageArray) {
 											// removes extra white space
 											.replace(/\s{2,}/g,' ').trim()
 											// splits into individual words
-											.split();
+											.split(' ');
 }
 
 function tallySwearWords(userMessageObject) {
@@ -53,18 +53,18 @@ function tallySwearWords(userMessageObject) {
 		// initialize a key(user):value(# of swear words)
 		userSwearTally[user] = swearTally;
 	}
-	console.log(userSwearTally);
 	return userSwearTally;
 }
 
 function getSortTokenizeAndTallyData() {
 	axios.get(baseURL, options)
-	.then(data => {
-		sortAndTokenizeData(data.response.messages);
+	.then(apiResponse => {
+		return sortAndTokenizeData(apiResponse.data.response.messages);
 	})
 	.then(data => {
-		tallySwearWords(data);
+		console.log(data);
+		console.log(tallySwearWords(data));
 	});
 }
 
-getSortTokenizeAndTallyData();
+export default getSortTokenizeAndTallyData;
