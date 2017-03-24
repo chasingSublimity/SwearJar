@@ -9,15 +9,15 @@ export class SettingsModal extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	// this function is passed to both inputs. The id of the element dictates which action is dispatched.
 	handleChange(event) {
+		// handles state change for input
 		const inputValue = event.target.value;
 		this.props.dispatch(actions.changeApiKeyInput(inputValue));
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
-		// put apiKey and groupId in state
+		// stores apiKey in state
 		const apiKey = this.props.apiKeyInputValue;
 		this.props.dispatch(actions.submitApiSettingsForm(apiKey));
 	}

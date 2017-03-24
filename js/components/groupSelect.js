@@ -11,12 +11,13 @@ export class GroupSelect extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
+		// finds group (in state) that matches the name submitted by the input
 		const selectedGroup = this.props.groups.find(group => group.name === this.props.groupSelectInputValue);
-		console.log(selectedGroup);
-		this.props.dispatch(actions.selectGroup(selectedGroup.name, selectedGroup.id));
+		this.props.dispatch(actions.submitGroupChoiceForm(selectedGroup.name, selectedGroup.id));
 	}
 
 	handleChange(event) {
+		// handles state change for input
 		const inputValue = event.target.value;
 		this.props.dispatch(actions.changeGroupSubmitInput(inputValue));
 	}

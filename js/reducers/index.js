@@ -27,7 +27,7 @@ export const reducer = (state=initialState, action) => {
 		newState = Object.assign({}, state, {groupSelectInputValue: action.value});
 		return newState;
 
-	case actions.SELECT_GROUP:
+	case actions.SUBMIT_GROUP_CHOICE_FORM_SUCCESS:
 		newState = Object.assign({}, state, {selectedGroup: {[action.groupName]: action.groupId}});
 		return newState;
 
