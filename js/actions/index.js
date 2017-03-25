@@ -60,8 +60,3 @@ export const updateApiKeySuccess = (groupArray, apiKey) => ({
 	groupArray,
 	apiKey
 });
-
-
-// input text in user search field
-
-// select user
