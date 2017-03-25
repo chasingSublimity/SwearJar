@@ -20,7 +20,7 @@ export class SettingsModal extends React.Component {
 		// stores apiKey in state
 		const apiKey = this.props.apiKeyInputValue;
 		// this action updates the groups in the store
-		this.props.dispatch(actions.submitApiSettingsForm(apiKey));
+		this.props.dispatch(actions.updateApiKey(apiKey));
 	}
 
 	render() {

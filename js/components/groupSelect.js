@@ -13,7 +13,9 @@ export class GroupSelect extends React.Component {
 		event.preventDefault();
 		// finds group (in state) that matches the name submitted by the input
 		const selectedGroup = this.props.groups.find(group => group.name === this.props.groupSelectInputValue);
-		this.props.dispatch(actions.submitGroupChoiceForm(selectedGroup.name, selectedGroup.id));
+		const apiKey = this.props.apiKey;
+		console.log(selectedGroup);
+		this.props.dispatch(actions.updateGroup(selectedGroup.name, selectedGroup.id, apiKey));
 	}
 
 	handleChange(event) {
@@ -45,7 +47,8 @@ const mapStateToProps = (state, props) => ({
 	memberBank: state.memberBank,
 	userSelectInputValue: state.userSelectInputValue,
 	groups: state.groups,
-	groupSelectInputValue: state.groupSelectInputValue
+	groupSelectInputValue: state.groupSelectInputValue,
+	apiKey: state.apiKey
 });
 
 export default connect(mapStateToProps)(GroupSelect);

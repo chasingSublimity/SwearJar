@@ -1,5 +1,8 @@
 import curseDictionary from './curseDictionary';
 
+// potential refactor for readability
+
+// make function name a higher level description
 function sortAndTokenizeData(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
 	const userMessages = {};

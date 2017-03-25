@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import swearCounter from '../helperFunctions/swearCounter';
+import handleMessageCalls from '../helperFunctions/handleMessageCalls';
 
 // change API Key form input
 export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
@@ -24,11 +25,11 @@ export const changeGroupSubmitInput = value =>({
 });
 
 
-export const submitGroupChoiceForm = (groupName, groupId) => dispatch => {
-	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?token=04d95e40dab101340a2c1d11b5667958`;
-	// const url = `https://api.groupme.com/v3/groups/16580230/messages?token=${groupId}`;
-	const options = {limit:100};
-	return axios.get(url, options).then(apiResponse => {
+export const updateGroup = (groupName, groupId, apiKey) => dispatch => {
+	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}`;
+	// return handleMessageCalls(groupId, apiKey)
+	return axios.get(url).then(apiResponse => {
+		console.log(apiResponse);
 		const userSwearCount = swearCounter(apiResponse.data.response.messages);
 		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
 	});
@@ -36,7 +37,7 @@ export const submitGroupChoiceForm = (groupName, groupId) => dispatch => {
 
 // select group
 export const SUBMIT_GROUP_CHOICE_FORM_SUCCESS = 'SUBMIT_GROUP_CHOICE_FORM_SUCCESS';
-export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) =>({
+export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => ({
 	type: SUBMIT_GROUP_CHOICE_FORM_SUCCESS, 
 	groupName,
 	groupId,
@@ -45,18 +46,17 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) =>(
 
 
 // submit Api Form
-export const submitApiSettingsForm = (apiKey) => dispatch => {
-	// const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
-	const url = 'https://api.groupme.com/v3/groups?token=04d95e40dab101340a2c1d11b5667958';
+export const updateApiKey = (apiKey) => dispatch => {
+	const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
 	return axios.get(url).then(apiResponse => {
 		// dispatch action with groups returned by api
-		return dispatch(submitApiFormSuccess(apiResponse.data.response, apiKey));
+		return dispatch(updateApiKeySuccess(apiResponse.data.response, apiKey));
 	});
 };
 
-export const SUBMIT_API_FORM_SUCCESS = 'SUBMIT_API_FORM_SUCCESS';
-export const submitApiFormSuccess = (groupArray, apiKey) => ({
-	type: SUBMIT_API_FORM_SUCCESS,
+export const UPDATE_API_KEY_SUCCESS = 'UPDATE_API_KEY_SUCCESS';
+export const updateApiKeySuccess = (groupArray, apiKey) => ({
+	type: UPDATE_API_KEY_SUCCESS,
 	groupArray,
 	apiKey
 });

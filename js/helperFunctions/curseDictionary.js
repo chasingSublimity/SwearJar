@@ -382,7 +382,8 @@ const curseDictionary =  {
   "wetback": ["discriminatory"],
   "whore": ["insult"],
   "whorebag": ["insult"],
-  "whoreface": ["insult"]
+  "whoreface": ["insult"],
+  "5hi tty": ["insult"]
 };
 
 export default curseDictionary;
