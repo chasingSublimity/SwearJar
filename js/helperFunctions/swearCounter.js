@@ -1,9 +1,11 @@
+// This function, when given an array of GroupMe message objects, returns an object
+// of Users (key) and # of swears (value)
+
 import curseDictionary from './curseDictionary';
 
 // potential refactor for readability
 
-// make function name a higher level description
-function sortAndTokenizeData(messages) {
+function sortAndTokenizeUserMessages(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
 	const userMessages = {};
 	// _userMessages will contain the user name (key) and a tokenized string of messages posted by that user (value).
@@ -21,12 +23,12 @@ function sortAndTokenizeData(messages) {
 	}
 	// tokenize the messages in userMessages
 	for (let user in userMessages) {
-		tokenizedUserMessages[user] = tokenizeData(userMessages[user]);
+		tokenizedUserMessages[user] = tokenizeMessages(userMessages[user]);
 	}
 	return tokenizedUserMessages;
 }
   
-function tokenizeData(messageArray) {
+function tokenizeMessages(messageArray) {
 										//filters out falsy values, joins into one array of lowercase strings
 	return messageArray.filter(Boolean).join().toLowerCase()
 											// removes punctuation
@@ -49,14 +51,15 @@ function tallySwearWords(userMessageObject) {
 				swearTally++;
 			}
 		}
-		// initialize a key(user):value(# of swear words)
-		userSwearTally[user] = swearTally;
+		// initialize a user property with the # of swears as a value
+		userSwearTally[user] = {swearTally};
 	}
 	// return object with users (key) and # of swears (value)
+	console.log(userSwearTally);
 	return userSwearTally;
 }
 
 export default function swearCounter(messageArray) {
 	// returns sorted and tokenized data
-	return tallySwearWords(sortAndTokenizeData(messageArray));
+	return tallySwearWords(sortAndTokenizeUserMessages(messageArray));
 }
