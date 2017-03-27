@@ -15,6 +15,8 @@ export class GroupSelect extends React.Component {
 		const selectedGroup = this.props.groups.find(group => group.name === this.props.groupSelectInputValue);
 		const apiKey = this.props.apiKey;
 		console.log(selectedGroup);
+		// not ideal to pass in a bunch of props into actions -- Prop Bloats
+		// apiKey is not necessary
 		this.props.dispatch(actions.updateGroup(selectedGroup.name, selectedGroup.id, apiKey));
 	}
 
