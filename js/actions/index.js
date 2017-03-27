@@ -11,13 +11,6 @@ export const changeApiKeyInput = value =>({
 });
 
 // change Group Id form input
-export const CHANGE_GROUP_ID_INPUT = 'CHANGE_GROUP_ID_INPUT';
-export const changeGroupIdInput = value =>({
-	type: CHANGE_GROUP_ID_INPUT, 
-	value
-});
-
-// change Group Id form input
 export const CHANGE_GROUP_SUBMIT_INPUT = 'CHANGE_GROUP_SUBMIT_INPUT';
 export const changeGroupSubmitInput = value =>({
 	type: CHANGE_GROUP_SUBMIT_INPUT, 
@@ -25,7 +18,8 @@ export const changeGroupSubmitInput = value =>({
 });
 
 
-export const updateGroup = (groupName, groupId, apiKey) => dispatch => {
+export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
+	const {apiKey} = getState();
 	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}`;
 	// return handleMessageCalls(groupId, apiKey)
 	return axios.get(url).then(apiResponse => {
