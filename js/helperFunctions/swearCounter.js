@@ -2,13 +2,14 @@
 // of Users (key) and # of swears (value)
 
 import curseDictionary from './curseDictionary';
+import assignOrder from './assignOrder';
 
 // potential refactor for readability
 
 function sortAndTokenizeUserMessages(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
 	const userMessages = {};
-	// _userMessages will contain the user name (key) and a tokenized string of messages posted by that user (value).
+	// tokenizedUserMessages will contain the user name (key) and a tokenized string of messages posted by that user (value).
 	const tokenizedUserMessages = {};
 	for (let i=0; i < messages.length; i++) {
 		const messageAuthor = messages[i].name;
@@ -55,11 +56,12 @@ function tallySwearWords(userMessageObject) {
 		userSwearTally[user] = {swearTally};
 	}
 	// return object with users (key) and # of swears (value)
-	console.log(userSwearTally);
 	return userSwearTally;
 }
 
 export default function swearCounter(messageArray) {
 	// returns sorted and tokenized data
-	return tallySwearWords(sortAndTokenizeUserMessages(messageArray));
+	const userObject = tallySwearWords(sortAndTokenizeUserMessages(messageArray));
+	const orderedUserObject = assignOrder(userObject);
+	return orderedUserObject;
 }
