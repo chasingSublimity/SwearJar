@@ -23,7 +23,6 @@ export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
 	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}`;
 	// return handleMessageCalls(groupId, apiKey)
 	return axios.get(url).then(apiResponse => {
-		console.log(apiResponse);
 		const userSwearCount = swearCounter(apiResponse.data.response.messages);
 		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
 	});

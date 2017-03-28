@@ -5,7 +5,7 @@ const initialState = {
 	apiKey: '',
 	memberBank: [],
 	groupSelectInputValue: null,
-	swearCount: null,
+	swearCount: [],
 	groups: [], 
 	selectedGroup: {}
 };
