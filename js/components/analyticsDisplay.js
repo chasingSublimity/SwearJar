@@ -14,7 +14,7 @@ export class AnalyticsDisplay extends React.Component {
 		}
 		);
 		return(
-			<div className="analytics-display grey-box">
+			<div className="analytics-display container grey-box">
 				<p>THIS IS THE ANALYTICSDISPLAY</p>
 				{users}
 			</div>

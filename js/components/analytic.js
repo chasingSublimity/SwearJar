@@ -8,8 +8,9 @@ export class Analytic extends React.Component {
 	}
 
 	render() {
+		const order = {order: this.props.order};
 		return(
-			<div className="analytic grey-box">
+			<div style={order} className="analytic grey-box">
 				<p>{this.props.order} - <span>{this.props.userName}</span> - {this.props.tally}</p>
 			</div>
 		);
