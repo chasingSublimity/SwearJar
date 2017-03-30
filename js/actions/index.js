@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import swearCounter from '../helperFunctions/swearCounter';
-import handleMessageCalls from '../helperFunctions/handleMessageCalls';
+import getAndTallyMessages from '../helperFunctions/getAndTallyMessages';
+import handleMessagePromise from '../helperFunctions/handleMessageRequest';
 
 // change API Key form input
 export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
@@ -20,10 +21,8 @@ export const changeGroupSubmitInput = value =>({
 
 export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
 	const {apiKey} = getState();
-	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}`;
-	// return handleMessageCalls(groupId, apiKey)
-	return axios.get(url).then(apiResponse => {
-		const userSwearCount = swearCounter(apiResponse.data.response.messages);
+	return handleMessagePromise(groupId, apiKey).then(messages => {
+		const userSwearCount = swearCounter(messages);
 		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
 	});
 };
