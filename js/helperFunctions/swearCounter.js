@@ -60,6 +60,7 @@ function tallySwearWords(userMessageObject) {
 }
 
 export default function swearCounter(messageArray) {
+	console.log(messageArray);
 	// returns sorted and tokenized data
 	const userObject = tallySwearWords(sortAndTokenizeUserMessages(messageArray));
 	const orderedUserObject = assignOrder(userObject);
