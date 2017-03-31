@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import swearCounter from '../helperFunctions/swearCounter';
-import getAndTallyMessages from '../helperFunctions/getAndTallyMessages';
-import handleMessagePromise from '../helperFunctions/handleMessageRequest';
+// import getAndTallyMessages from '../helperFunctions/getAndTallyMessages';
+import handleMessagePromise from '../helperFunctions/handleMessagePromise';
 
 // change API Key form input
 export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
