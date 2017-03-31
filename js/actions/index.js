@@ -33,7 +33,7 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => 
 	type: SUBMIT_GROUP_CHOICE_FORM_SUCCESS, 
 	groupName,
 	groupId,
-	userSwearCount
+	userSwearCount,
 });
 
 

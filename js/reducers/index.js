@@ -4,10 +4,10 @@ const initialState = {
 	apiKeyInputValue: '',
 	apiKey: '',
 	memberBank: [],
+	groups: [], 
+	selectedGroup: {},
 	groupSelectInputValue: null,
 	swearCount: [],
-	groups: [], 
-	selectedGroup: {}
 };
 
 export const reducer = (state=initialState, action) => {

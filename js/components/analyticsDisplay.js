@@ -11,8 +11,7 @@ export class AnalyticsDisplay extends React.Component {
 	render() {
 		let users = this.props.swearCount.map((userObject, index) =>{
 			return <Analytic key={index} order={userObject.order} tally={userObject.tally} userName={userObject.name} />;	
-		}
-		);
+		});
 		return(
 			<div className="analytics-display container grey-box">
 				<p>THIS IS THE ANALYTICSDISPLAY</p>
@@ -23,7 +22,8 @@ export class AnalyticsDisplay extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-	swearCount: state.swearCount
+	swearCount: state.swearCount,
+	analyticsDisplayClass: state.analyticsDisplayClass
 });
 
 export default connect(mapStateToProps)(AnalyticsDisplay);
