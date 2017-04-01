@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import swearCounter from '../helperFunctions/swearCounter';
 // import getAndTallyMessages from '../helperFunctions/getAndTallyMessages';
-import handleMessagePromise from '../helperFunctions/handleMessagePromise';
+import getMessages from '../helperFunctions/promiseFromHell';
 
 // change API Key form input
 export const CHANGE_API_KEY_INPUT = 'CHANGE_API_KEY_INPUT';
@@ -21,7 +21,8 @@ export const changeGroupSubmitInput = value =>({
 
 export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
 	const {apiKey} = getState();
-	return handleMessagePromise(groupId, apiKey).then(messages => {
+	return getMessages(groupId, apiKey).then(messages => {
+		console.log('updateGroup: ', messages);
 		const userSwearCount = swearCounter(messages);
 		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
 	});
@@ -33,7 +34,7 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => 
 	type: SUBMIT_GROUP_CHOICE_FORM_SUCCESS, 
 	groupName,
 	groupId,
-	userSwearCount,
+	userSwearCount
 });
 
 

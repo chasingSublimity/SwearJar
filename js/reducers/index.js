@@ -7,7 +7,7 @@ const initialState = {
 	groups: [], 
 	selectedGroup: {},
 	groupSelectInputValue: null,
-	swearCount: [],
+	swearCount: []
 };
 
 export const reducer = (state=initialState, action) => {
