@@ -28,8 +28,9 @@ export class GroupSelect extends React.Component {
 		);
 		return(
 			<div className="user-select grey-box">
-				<form onSubmit={this.handleSubmit}>
+				<form className="group-choice-from" onSubmit={this.handleSubmit}>
 					<label>Choose a group from this list:
+					<br/>
 					<input list="groups" name="selectedGroup" onChange={this.handleChange} /></label>
 					<datalist id="groups">
 						{groups}
