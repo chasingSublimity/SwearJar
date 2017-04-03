@@ -27,7 +27,7 @@ export class SettingsModal extends React.Component {
 		return(
 			<div className="settings-modal grey-box">
 				<p>THIS IS THE SETTINGS MODAL</p>
-				<form onSubmit={this.handleSubmit}>
+				<form className="settings-form" onSubmit={this.handleSubmit}>
 					<input required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
 					<input type="submit"/>
 				</form>

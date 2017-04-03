@@ -2,6 +2,7 @@ import React from 'react';
 import Analytic from './analytic';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
+import List from 'material-ui/List';
 
 export class AnalyticsDisplay extends React.Component {
 	constructor(props) {
@@ -13,10 +14,9 @@ export class AnalyticsDisplay extends React.Component {
 			return <Analytic key={index} order={userObject.order} tally={userObject.tally} userName={userObject.name} />;	
 		});
 		return(
-			<div className="analytics-display container grey-box">
-				<p>THIS IS THE ANALYTICSDISPLAY</p>
-				{users}
-			</div>
+				<List className="container analytics-display">
+					{users}
+				</List>
 		);
 	}
 }
