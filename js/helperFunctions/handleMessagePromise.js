@@ -1,59 +1,22 @@
 import axios from 'axios';
 
-function getMessages(groupId, apiKey, before_id='') {
-	const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}&before_id=${before_id}`;
-	return axios.get(url);
-}
-
-export default function handleMessagePromise(groupId, apiKey)  {
+export default function getMessages(groupId, apiKey, before_id='', messageArray=[], apiCallCounter=0) {
 	return new Promise((resolve, reject) => {
-		let messageArray = [];
-		getMessages(groupId, apiKey)
-			.then(apiResponse => {
-				const messages = apiResponse.data.response.messages;
-				messageArray.push(...messages);
-				const before_id = messages[messages.length-1].id;
-				return before_id;
-			})
-			.then((before_id) => {
-				return getMessages(groupId, apiKey, before_id);
-			})
-			.then((apiResponse) => {
-				const messages = apiResponse.data.response.messages;
-				messageArray.push(...messages);
-				const before_id = messages[messages.length-1].id;
-				return before_id;
-			})
-			.then((before_id) => {
-				return getMessages(groupId, apiKey, before_id);
-			})
-			.then((apiResponse) => {
-				const messages = apiResponse.data.response.messages;
-				messageArray.push(...messages);
-				const before_id = messages[messages.length-1].id;
-				return before_id;
-			})
-			.then((before_id) => {
-				return getMessages(groupId, apiKey, before_id);
-			})
-			.then((apiResponse) => {
-				const messages = apiResponse.data.response.messages;
-				messageArray.push(...messages);
-				const before_id = messages[messages.length-1].id;
-				return before_id;
-			})
-			.then((before_id) => {
-				return getMessages(groupId, apiKey, before_id);
-			})
-			.then((apiResponse) => {
-				const messages = apiResponse.data.response.messages;
-				messageArray.push(...messages);
-			})
-			.then(() => {
+		const url = `https://api.groupme.com/v3/groups/${groupId}/messages?limit=100&token=${apiKey}&before_id=${before_id}`;
+		axios.get(url).then(apiResponse => {
+			const messages = apiResponse.data.response.messages;
+			if (apiCallCounter === 10) {
+				console.log('finished');
 				resolve(messageArray);
-			})
-			.catch((error) => {
-				reject(Error(error));
-			});
+			} else {
+				messageArray.push(...messages);
+				return getMessages(groupId, apiKey, messages[messages.length-1].id, messageArray, ++apiCallCounter);
+			}
+		}).then(messageData => {
+			resolve(messageData);
+		})
+		.catch((error) => {
+			reject(error);
+		});
 	});
 }
