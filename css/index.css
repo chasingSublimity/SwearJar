@@ -11,41 +11,28 @@ body {
 
 .app {
 	margin-top: 50px;
-
   height: auto;
   margin: 1em auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
 }
 
 .header {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   background-color: #E98E4E;
-  max-width: auto;
   box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, 0.8);
   margin-top: 25px;
   font-size: 30px;
   font-weight: bold;
 }
 
-/*.grey-box {
-  background: grey;
-  text-align: center;
-  min-height: 50px;
-	padding: 10px;
-  margin-bottom: 10px;
-  border: 3px solid black;	
-}*/
+.header-title {
+  padding: 25px;
+}
 
 .settings-modal {
-  position: relative;
-  z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin: 15px auto 50px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
@@ -97,6 +84,7 @@ input:-webkit-autofill:active {
   background: rgba(59, 68, 87, 0.6);
   border: none;
   padding-bottom: 15px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
 }
 
@@ -111,17 +99,28 @@ input:-webkit-autofill:active {
 
 .analytic {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 5px;
   background: #f7f7f7;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   color: #008B95;
   font-size: larger;
   font-weight: bold;
+  padding-left: 15px;
+}
+
+.avatar-img {
+  padding-top: 14px;
+  max-height: 42px;
+  max-width: 42px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .container {
   display: flex;
+  margin: auto;
   justify-content: center;
   flex-direction: column;
+  max-width: 400px;
 }
