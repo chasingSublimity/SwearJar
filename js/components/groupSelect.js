@@ -31,7 +31,7 @@ export class GroupSelect extends React.Component {
 				<form className="group-choice-form" onSubmit={this.handleSubmit}>
 					<label>Choose a group from this list:
 					<br/>
-					<input list="groups" name="selectedGroup" onChange={this.handleChange} /></label>
+					<input list="groups" required name="selectedGroup" onChange={this.handleChange} /></label>
 					<datalist id="groups">
 						{groups}
 					</datalist>
