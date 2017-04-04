@@ -110,11 +110,10 @@ input:-webkit-autofill:active {
 }
 
 .avatar-img {
-  padding-top: 14px;
   max-height: 42px;
   max-width: 42px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin: 12px 10px;
 }
 
 .container {
