@@ -8,25 +8,25 @@ import assignOrder from './assignOrder';
 
 function sortAndTokenizeUserMessages(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
-	const userMessages = {};
+	const userMessagesAndImage = {};
 	// tokenizedUserMessages will contain the user name (key) and a tokenized string of messages posted by that user (value).
-	const tokenizedUserMessages = {};
 	for (let i=0; i < messages.length; i++) {
 		const messageAuthor = messages[i].name;
+		const avatar_url = messages[i].avatar_url;
 		const messageText = messages[i].text;
 		// if the user is already in userMessages, push the message text to the corresponding array
-		if (messageAuthor in userMessages) {
-			userMessages[messageAuthor].push(messageText);
+		if (messageAuthor in userMessagesAndImage && messageAuthor !== 'GroupMe') {
+			userMessagesAndImage[messageAuthor].messages.push(messageText);
 		// if the user is not in userMessages, create a prop/key value with the user name and an array containing message text
-		} else {
-			userMessages[messageAuthor] = [messageText];
+		} else if (messageAuthor !== 'GroupMe') {
+			userMessagesAndImage[messageAuthor] = {messages: [messageText], avatar_url};
 		}
 	}
 	// tokenize the messages in userMessages
-	for (let user in userMessages) {
-		tokenizedUserMessages[user] = tokenizeMessages(userMessages[user]);
+	for (let user in userMessagesAndImage) {
+		userMessagesAndImage[user].messages = tokenizeMessages(userMessagesAndImage[user].messages);
 	}
-	return tokenizedUserMessages;
+	return userMessagesAndImage;
 }
   
 function tokenizeMessages(messageArray) {
@@ -41,11 +41,12 @@ function tokenizeMessages(messageArray) {
 }
 
 function tallySwearWords(userMessageObject) {
-	let userSwearTally = {};
+	let userSwearTallyAndImage = {};
 	// loop through each user to access message array
 	for (let user in userMessageObject) {
+		const avatar_url = userMessageObject[user].avatar_url;
 		let swearTally = 0;
-		const messageArray = userMessageObject[user];
+		const messageArray = userMessageObject[user].messages;
 		// loop through message array to determine swear counter
 		for (let i=0; i<messageArray.length; i++) {
 			if (messageArray[i] in curseDictionary) {
@@ -53,10 +54,10 @@ function tallySwearWords(userMessageObject) {
 			}
 		}
 		// initialize a user property with the # of swears as a value
-		userSwearTally[user] = {swearTally};
+		userSwearTallyAndImage[user] = {swearTally, avatar_url};
 	}
 	// return object with users (key) and # of swears (value)
-	return userSwearTally;
+	return userSwearTallyAndImage;
 }
 
 export default function swearCounter(messageArray) {
@@ -67,8 +68,7 @@ export default function swearCounter(messageArray) {
 	// one for each user.
 	const userAndMessageArray = [];
 	Object.keys(orderedUserObject).forEach(user => {
-		userAndMessageArray.push({name: user, order: (orderedUserObject[user].order + 1), tally: orderedUserObject[user].swearTally});
+		userAndMessageArray.push({name: user, order: (orderedUserObject[user].order + 1), tally: orderedUserObject[user].swearTally, avatar_url: orderedUserObject[user].avatar_url});
 	});
-	console.log(userAndMessageArray);
 	return userAndMessageArray;
 }

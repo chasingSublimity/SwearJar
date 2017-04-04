@@ -6,14 +6,11 @@ export default function getMessages(groupId, apiKey, before_id='', messageArray=
 		axios.get(url).then(apiResponse => {
 			const messages = apiResponse.data.response.messages;
 			if (apiCallCounter === 10) {
-				console.log('finished');
 				resolve(messageArray);
 			} else {
 				messageArray.push(...messages);
-				return getMessages(groupId, apiKey, messages[messages.length-1].id, messageArray, ++apiCallCounter);
+				resolve(getMessages(groupId, apiKey, messages[messages.length-1].id, messageArray, ++apiCallCounter));
 			}
-		}).then(messageData => {
-			resolve(messageData);
 		})
 		.catch((error) => {
 			reject(error);
