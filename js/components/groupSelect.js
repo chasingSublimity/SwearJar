@@ -35,7 +35,7 @@ export class GroupSelect extends React.Component {
 					<datalist id="groups">
 						{groups}
 					</datalist>
-					<input type="submit" />
+					<input type="submit" style={{marginLeft: '5px'}} />
 				</form>
 			</div>
 		);

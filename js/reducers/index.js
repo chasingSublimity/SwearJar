@@ -1,6 +1,7 @@
 import * as actions from '../actions/index';
 
 const initialState = {
+	isModalOpen: true,
 	apiKeyInputValue: '',
 	apiKey: '',
 	memberBank: [],
@@ -34,7 +35,7 @@ export const reducer = (state=initialState, action) => {
 		return newState;
 
 	case actions.UPDATE_API_KEY_SUCCESS:
-		newState = Object.assign({}, state, {groups: [...action.groupArray]}, {apiKey: action.apiKey});
+		newState = Object.assign({}, state, {groups: [...action.groupArray]}, {apiKey: action.apiKey}, {isModalOpen: action.isModalOpen});
 		return newState;
 	}
 

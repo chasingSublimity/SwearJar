@@ -72,6 +72,7 @@
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.1",
     "react-fade": "^1.1.1",
+    "react-modal": "^1.7.3",
     "react-redux": "^4.4.5",
     "react-redux-spinner": "^0.5.0",
     "react-tap-event-plugin": "^2.0.1",

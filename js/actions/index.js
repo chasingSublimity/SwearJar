@@ -37,11 +37,12 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => 
 
 
 // submit Api Form
-export const updateApiKey = (apiKey) => dispatch => {
+export const updateApiKey = (apiKey) => (dispatch, getState) => {
+	const {isModalOpen} = getState();
 	const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
 	return axios.get(url).then(apiResponse => {
-		// dispatch action with groups returned by api
-		return dispatch(updateApiKeySuccess(apiResponse.data.response, apiKey));
+		// dispatch action with groups returned by api, apiKey, and the inverse modal boolean
+		return dispatch(updateApiKeySuccess(apiResponse.data.response, apiKey, (!isModalOpen)));
 	});
 };
 
