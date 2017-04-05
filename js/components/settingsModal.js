@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
+import Fade from 'react-fade';
 import Modal from 'react-modal';
 
 export class SettingsModal extends React.Component {
@@ -8,6 +9,11 @@ export class SettingsModal extends React.Component {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	returnDemoApiKey() {
+		return '04d95e40dab101340a2c1d11b5667958';
 	}
 
 	handleChange(event) {
@@ -24,15 +30,28 @@ export class SettingsModal extends React.Component {
 		this.props.dispatch(actions.updateApiKey(apiKey));
 	}
 
+	handleClick(event) {
+		event.preventDefault();
+		// dispatches action with demo apiKey
+		this.props.dispatch(actions.updateApiKey(this.returnDemoApiKey()));
+	}
+
+
 	render() {
 		return(
-			<Modal className="settings-modal grey-box" isOpen={this.props.isModalOpen} contentLabel="Modal">
+			<Modal className="settings-modal" isOpen={this.props.isModalOpen} contentLabel="Modal">
 				<div>
-					<p>THIS IS THE SETTINGS MODAL</p>
+					<h3>Hey there!</h3>
+					<p>Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
+					member has the highest affinity for four-letter words</p>
+					<p>Enter your GroupMe API Key below to get started!</p>
 					<form className="settings-form" onSubmit={this.handleSubmit}>
 						<input className="settings-modal-input" required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
 						<input className="settings-modal-button"type="submit" />
 					</form>
+					<p>Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
+					<p>Don't feel like signing up?</p>
+					<a href="#" onClick={this.handleClick}>Click here to see a demo!</a>
 				</div>
 			</Modal>
 		);

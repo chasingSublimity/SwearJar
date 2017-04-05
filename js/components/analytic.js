@@ -14,7 +14,7 @@ export class Analytic extends React.Component {
 			<Fade style={order}>
 				<div className="analytic">
 					<img alt="user avatar image" className="avatar-img" src={this.props.avatar_url} />
-					<p>{this.props.order} - <span>{this.props.userName}</span> - {this.props.tally}</p>
+					<p><strong>{this.props.userName}</strong> - {this.props.tally}</p>
 				</div>
 			</Fade>
 		);
