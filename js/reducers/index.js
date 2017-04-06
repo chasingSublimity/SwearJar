@@ -36,9 +36,7 @@ export const reducer = (state=initialState, action) => {
 	case actions.SUBMIT_GROUP_CHOICE_FORM_SUCCESS:
 		newState = Object.assign({}, state, {selectedGroup: {[action.groupName]: action.groupId}},
 																				{swearCount: action.userSwearCount},
-																				// this stops the spinner after the content has been rendered,
-																				// but it definitely feels hacky.
-																				{spinnerStopped: true});
+																				{spinnerStopped: action.spinnerStopped});
 		return newState;
 
 	case actions.UPDATE_API_KEY_SUCCESS:

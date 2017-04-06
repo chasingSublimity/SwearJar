@@ -26,19 +26,22 @@ export const fireSpinner = value => ({
 
 export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
 	const {apiKey} = getState();
+	const {spinnerStopped} = getState();
 	return getMessages(groupId, apiKey).then(messages => {
 		const userSwearCount = swearCounter(messages);
-		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount));
+																																								// return toggled boolean
+		return dispatch(submitGroupChoiceSuccess(groupName, groupId, userSwearCount, !spinnerStopped));
 	});
 };
 
 // select group
 export const SUBMIT_GROUP_CHOICE_FORM_SUCCESS = 'SUBMIT_GROUP_CHOICE_FORM_SUCCESS';
-export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => ({
+export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount, spinnerStopped) => ({
 	type: SUBMIT_GROUP_CHOICE_FORM_SUCCESS, 
 	groupName,
 	groupId,
-	userSwearCount
+	userSwearCount,
+	spinnerStopped
 });
 
 
