@@ -18,6 +18,12 @@ export const changeGroupSubmitInput = value =>({
 });
 
 
+export const FIRE_SPINNER = 'FIRE_SPINNER';
+export const fireSpinner = value => ({
+	type: FIRE_SPINNER,
+	value
+});
+
 export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
 	const {apiKey} = getState();
 	return getMessages(groupId, apiKey).then(messages => {
@@ -34,6 +40,7 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount) => 
 	groupId,
 	userSwearCount
 });
+
 
 
 // submit Api Form

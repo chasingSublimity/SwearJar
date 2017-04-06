@@ -11,7 +11,7 @@ body {
 
 .app {
 	margin-top: 50px;
-  height: auto;
+  min-height: 500px;
   margin: 1em auto;
   text-align: center;
 }

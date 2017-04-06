@@ -8,7 +8,8 @@ const initialState = {
 	groups: [], 
 	selectedGroup: {},
 	groupSelectInputValue: null,
-	swearCount: []
+	swearCount: [],
+	spinnerStopped: true
 };
 
 export const reducer = (state=initialState, action) => {
@@ -28,14 +29,22 @@ export const reducer = (state=initialState, action) => {
 		newState = Object.assign({}, state, {groupSelectInputValue: action.value});
 		return newState;
 
+	case actions.FIRE_SPINNER:
+		newState = Object.assign({}, state, {spinnerStopped: action.value});
+		return newState;
+
 	case actions.SUBMIT_GROUP_CHOICE_FORM_SUCCESS:
 		newState = Object.assign({}, state, {selectedGroup: {[action.groupName]: action.groupId}},
-																				{swearCount: action.userSwearCount}
-														);
+																				{swearCount: action.userSwearCount},
+																				// this stops the spinner after the content has been rendered,
+																				// but it definitely feels hacky.
+																				{spinnerStopped: true});
 		return newState;
 
 	case actions.UPDATE_API_KEY_SUCCESS:
-		newState = Object.assign({}, state, {groups: [...action.groupArray]}, {apiKey: action.apiKey}, {isModalOpen: action.isModalOpen});
+		newState = Object.assign({}, state, {groups: [...action.groupArray]}, 
+																				{apiKey: action.apiKey}, 
+																				{isModalOpen: action.isModalOpen});
 		return newState;
 	}
 
