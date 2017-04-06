@@ -13,7 +13,6 @@ function removeDuplicates(array) {
 }
 
 export default function assignOrder(messageObject) {
-	console.log(messageObject);
 	const countArray = [];
 	const users = Object.keys(messageObject);
 	// pushes each swearCount into the countArray

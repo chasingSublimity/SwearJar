@@ -40,7 +40,7 @@ body {
 }
 
 .settings-modal-input {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -52,7 +52,7 @@ body {
 }
 
 .settings-modal-button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #008B95;
@@ -68,6 +68,18 @@ body {
 
 .settings-modal-button:hover,.form button:active,.form button:focus {
   background: #02737c;
+}
+
+.group-select-input {
+  font-family: "Open Sans", sans-serif;
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 3px black;
+  margin: 10px 0 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 /*remove yellow background on input autofill*/
@@ -122,4 +134,14 @@ input:-webkit-autofill:active {
   justify-content: center;
   flex-direction: column;
   max-width: 400px;
+}
+
+footer {
+  text-align: center;
+  min-height: 100%;
+  margin-bottom: -50px
+}
+
+footer > a {
+  height: 50px;
 }

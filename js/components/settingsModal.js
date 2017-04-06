@@ -13,7 +13,7 @@ export class SettingsModal extends React.Component {
 	}
 
 	returnDemoApiKey() {
-		return '04d95e40dab101340a2c1d11b5667958';
+		return '26f8ea30fc4e0134512917425ee4c311';
 	}
 
 	handleChange(event) {
