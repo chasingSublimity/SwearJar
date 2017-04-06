@@ -4,18 +4,17 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import App from '../js/components/app';
+import Main from '../js/components/main';
 
 describe('App component', function() {
 	it('renders the app component',  function() {
 
 		const renderer = TestUtils.createRenderer();
-		renderer.render(<App />);
+		renderer.render(<Main />);
 		const result = renderer.getRenderOutput();
-		console.log(result.props.children[0]);
-		result.props.className.should.equal('app');
+		result.props.className.should.equal('main');
 		result.props.children.should.be.an('array');
-		result.props.children.should.have.length.of(4);
+		result.props.children.should.have.length.of(3);
 		result.props.children[0].should.be.an('object');
 	});
 });
