@@ -11,17 +11,15 @@ export class GroupSelect extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		// finds group (in state) that matches the name submitted by the input
-		const selectedGroup = this.props.groups.find(group => group.name === this.props.groupSelectInputValue);
 		// fires the toggleSpinner action with the inverse of spinnerStopped boolean, which should always be false here
 		this.props.dispatch(actions.fireSpinner(!(this.props.spinnerStopped)));
-		this.props.dispatch(actions.updateGroup(selectedGroup.name, selectedGroup.id));
+		this.props.dispatch(actions.submitGroup(this.props.selectedGroup.name, this.props.selectedGroup.id));
 	}
 
 	handleChange(event) {
 		// handles state change for input
 		const inputValue = event.target.value;
-		this.props.dispatch(actions.changeGroupSubmitInput(inputValue));
+		this.props.dispatch(actions.changeSelectedGroup(inputValue));
 	}
 
 	render() {
@@ -48,7 +46,7 @@ const mapStateToProps = (state, props) => ({
 	memberBank: state.memberBank,
 	userSelectInputValue: state.userSelectInputValue,
 	groups: state.groups,
-	groupSelectInputValue: state.groupSelectInputValue,
+	selectedGroup: state.selectedGroup,
 	apiKey: state.apiKey
 });
 

@@ -7,7 +7,6 @@ const initialState = {
 	memberBank: [],
 	groups: [], 
 	selectedGroup: {},
-	groupSelectInputValue: null,
 	swearCount: [],
 	spinnerStopped: true
 };
@@ -21,12 +20,8 @@ export const reducer = (state=initialState, action) => {
 		newState = Object.assign({}, state, {apiKeyInputValue: action.value});
 		return newState;
 
-	case actions.CHANGE_GROUP_ID_INPUT:
-		newState = Object.assign({}, state, {groupIdInputValue: action.value});
-		return newState;
-
-	case actions.CHANGE_GROUP_SUBMIT_INPUT:
-		newState = Object.assign({}, state, {groupSelectInputValue: action.value});
+	case actions.CHANGE_SELECTED_GROUP_SUCCESS:
+		newState = Object.assign({}, state, {selectedGroup: action.selectedGroupNameAndId});
 		return newState;
 
 	case actions.FIRE_SPINNER:
@@ -34,15 +29,15 @@ export const reducer = (state=initialState, action) => {
 		return newState;
 
 	case actions.SUBMIT_GROUP_CHOICE_FORM_SUCCESS:
-		newState = Object.assign({}, state, {selectedGroup: {[action.groupName]: action.groupId}},
-																				{swearCount: action.userSwearCount},
+		newState = Object.assign({}, state, {swearCount: action.userSwearCount},
 																				{spinnerStopped: action.spinnerStopped});
 		return newState;
 
 	case actions.UPDATE_API_KEY_SUCCESS:
 		newState = Object.assign({}, state, {groups: [...action.groupArray]}, 
 																				{apiKey: action.apiKey}, 
-																				{isModalOpen: action.isModalOpen});
+																				{isModalOpen: action.isModalOpen}, 
+																				{selectedGroup: action.defaultGroupData});
 		return newState;
 	}
 

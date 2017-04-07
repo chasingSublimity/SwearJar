@@ -11,10 +11,17 @@ export const changeApiKeyInput = value =>({
 });
 
 // change Group Id form input
-export const CHANGE_GROUP_SUBMIT_INPUT = 'CHANGE_GROUP_SUBMIT_INPUT';
-export const changeGroupSubmitInput = value =>({
-	type: CHANGE_GROUP_SUBMIT_INPUT, 
-	value
+export const CHANGE_SELECTED_GROUP = 'CHANGE_SELECTED_GROUP';
+export const changeSelectedGroup = value => (dispatch, getState) => {
+	const selectedGroup = getState().groups.find(group => group.name === value);
+	const selectedGroupNameAndId = {name: selectedGroup.name, id: selectedGroup.id};
+	dispatch(changeSelectedGroupSuccess(selectedGroupNameAndId));
+};
+
+export const CHANGE_SELECTED_GROUP_SUCCESS = 'CHANGE_SELECTED_GROUP_SUCCESS';
+export const changeSelectedGroupSuccess = (selectedGroupNameAndId) =>  ({
+	type: CHANGE_SELECTED_GROUP_SUCCESS, 
+	selectedGroupNameAndId
 });
 
 
@@ -24,7 +31,7 @@ export const fireSpinner = value => ({
 	value
 });
 
-export const updateGroup = (groupName, groupId) => (dispatch, getState) => {
+export const submitGroup = (groupName, groupId) => (dispatch, getState) => {
 	const {apiKey} = getState();
 	const {spinnerStopped} = getState();
 	return getMessages(groupId, apiKey).then(messages => {
@@ -51,14 +58,18 @@ export const updateApiKey = (apiKey) => (dispatch, getState) => {
 	const {isModalOpen} = getState();
 	const url = `https://api.groupme.com/v3/groups?token=${apiKey}`;
 	return axios.get(url).then(apiResponse => {
+		// for ux reasons, the name of the first group in the api response becomes the default selected group
+		const defaultGroupData = {name: apiResponse.data.response[0].name, id: apiResponse.data.response[0].id};
 		// dispatch action with groups returned by api, apiKey, and the inverse modal boolean
-		return dispatch(updateApiKeySuccess(apiResponse.data.response, apiKey, (!isModalOpen)));
+		return dispatch(updateApiKeySuccess(apiResponse.data.response, apiKey, (!isModalOpen), defaultGroupData));
 	});
 };
 
 export const UPDATE_API_KEY_SUCCESS = 'UPDATE_API_KEY_SUCCESS';
-export const updateApiKeySuccess = (groupArray, apiKey) => ({
+export const updateApiKeySuccess = (groupArray, apiKey, isModalOpen, defaultGroupData) => ({
 	type: UPDATE_API_KEY_SUCCESS,
 	groupArray,
-	apiKey
+	apiKey,
+	isModalOpen, 
+	defaultGroupData
 });
