@@ -18,6 +18,7 @@ function sortAndTokenizeUserMessages(messages) {
 		const avatar_url = (messages[i].avatar_url || defaultUserAvatar);
 		const messageText = messages[i].text;
 		// if the user is already in userMessages, push the message text to the corresponding array
+		// the last condition filters out system messages
 		if (messageAuthor in userMessagesAndImage && messageAuthor !== 'GroupMe') {
 			userMessagesAndImage[messageAuthor].messages.push(messageText);
 		// if the user is not in userMessages, create a prop/key value with the user name and an array containing message text
