@@ -104,6 +104,17 @@ input:-webkit-autofill:active {
   padding-top: 10px;
 }
 
+.group-submit-button {
+  background: #e6e8e8;
+  padding: 7px;
+  width: 69%;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 .analytics-display {
   background: none;
   border: none;

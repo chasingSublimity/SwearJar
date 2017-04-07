@@ -26,17 +26,17 @@ export class GroupSelect extends React.Component {
 
 	render() {
 		let groups = this.props.groups.map((groupObject, index) =>
-			<option key={index} value={groupObject.name} />
+			<option key={index} value={groupObject.name}>{groupObject.name}</option>
 		);
 		return(
 			<div className="group-select">
 				<form className="group-choice-form" onSubmit={this.handleSubmit}>
-					<label>Choose a group from this list:
+					<label>Choose a group from this list:</label>
 					<br/>
-					<input className="group-select-input" list="groups" required name="selectedGroup" onChange={this.handleChange} /></label>
-					<datalist id="groups">
+					<select required onChange={this.handleChange} className="group-select-input" id="groups">
 						{groups}
-					</datalist>
+					</select>
+					<input className="group-submit-button" type="submit" />
 				</form>
 			</div>
 		);
