@@ -1,6 +1,7 @@
 // This function, when given an array of GroupMe message objects, returns an object
 // of Users (key) and # of swears (value)
 
+
 import curseDictionary from './curseDictionary';
 import assignOrder from './assignOrder';
 
@@ -9,10 +10,12 @@ import assignOrder from './assignOrder';
 function sortAndTokenizeUserMessages(messages) {
   // userMessages will contain the user name (key) and an array of messages posted by that user (value).
 	const userMessagesAndImage = {};
+	const defaultUserAvatar = 'https://i.groupme.com/300x300.png.6485c42fdeaa45b5a4b986b9cb1c91a2.avatar';
 	// tokenizedUserMessages will contain the user name (key) and a tokenized string of messages posted by that user (value).
 	for (let i=0; i < messages.length; i++) {
 		const messageAuthor = messages[i].name;
-		const avatar_url = messages[i].avatar_url;
+		// if no the user does not have an avatar, the default avatar is used.
+		const avatar_url = (messages[i].avatar_url || defaultUserAvatar);
 		const messageText = messages[i].text;
 		// if the user is already in userMessages, push the message text to the corresponding array
 		if (messageAuthor in userMessagesAndImage && messageAuthor !== 'GroupMe') {
