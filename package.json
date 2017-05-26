@@ -66,8 +66,6 @@
     "axios": "^0.15.3",
     "inline-style-prefixer": "^2.0.5",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.2.0",
-    "material-ui": "^0.17.1",
     "react": "^15.3.1",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.1",
