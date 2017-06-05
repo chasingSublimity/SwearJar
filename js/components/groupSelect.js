@@ -36,6 +36,8 @@ export class GroupSelect extends React.Component {
 					</select>
 					<input className="group-submit-button" type="submit" />
 				</form>
+				<br/>
+				<button className="reset-button" type="submit">Choose another user</button>
 			</div>
 		);
 	}
