@@ -52,7 +52,6 @@ export const submitGroupChoiceSuccess = (groupName, groupId, userSwearCount, spi
 });
 
 
-
 // submit Api Form
 export const updateApiKey = (apiKey) => (dispatch, getState) => {
 	const {isModalOpen} = getState();
@@ -72,4 +71,9 @@ export const updateApiKeySuccess = (groupArray, apiKey, isModalOpen, defaultGrou
 	apiKey,
 	isModalOpen, 
 	defaultGroupData
+});
+
+export const RESET_APP = 'RESET_APP';
+export const resetApp = () => ({
+	type:RESET_APP
 });

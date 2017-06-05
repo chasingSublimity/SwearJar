@@ -39,6 +39,11 @@ export const reducer = (state=initialState, action) => {
 																				{isModalOpen: action.isModalOpen}, 
 																				{selectedGroup: action.defaultGroupData});
 		return newState;
+
+	case actions.RESET_APP:
+		newState = Object.assign({}, initialState);
+		return newState;
+				
 	}
 
 	return state;
