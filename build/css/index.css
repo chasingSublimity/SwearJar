@@ -37,6 +37,13 @@ body {
   text-align: center;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   color: black;
+  /*These settings will make the modal fill the entire screen.
+  Useful for when the modal becomes a landing page*/
+  /*position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
 }
 
 .settings-modal-input {
@@ -71,14 +78,13 @@ body {
 }
 
 .group-select-input {
+  width: 70%;
   font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #ffffff;
-  width: 100%;
   border: 3px black;
   margin: 10px 0 10px;
   padding: 15px;
-  box-sizing: border-box;
   font-size: 14px;
 }
 
@@ -91,7 +97,6 @@ input:-webkit-autofill:active {
 }
 
 .group-select {
-  display: flex;
   justify-content: center;
   background: rgba(59, 68, 87, 0.6);
   border: none;
@@ -105,9 +110,24 @@ input:-webkit-autofill:active {
 }
 
 .group-submit-button {
-  background: #e6e8e8;
+  background: #E98E4E;
+  color: white;
+  border-radius: 5px;
   padding: 7px;
-  width: 69%;
+  width: 70%;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.reset-button {
+  background: #E98E4E;
+  color: white;
+  border-radius: 5px;
+  padding: 7px;
+  width: 70%;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   border: none;
   outline: 0;
