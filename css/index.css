@@ -37,6 +37,13 @@ body {
   text-align: center;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   color: black;
+  /*These settings will make the modal fill the entire screen.
+  Useful for when the modal becomes a landing page*/
+  /*position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
 }
 
 .settings-modal-input {
@@ -106,8 +113,22 @@ input:-webkit-autofill:active {
 
 .group-submit-button {
   background: #e6e8e8;
+  border-radius: 5px;
   padding: 7px;
   width: 69%;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.reset-button {
+  background: #e6e8e8;
+  border-radius: 5px;
+  padding: 7px;
+  width: 151px;
+  height: 57px;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   border: none;
   outline: 0;
