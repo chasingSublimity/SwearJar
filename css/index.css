@@ -97,12 +97,8 @@ input:-webkit-autofill:active {
 }
 
 .group-select {
-  justify-content: center;
-  background: rgba(59, 68, 87, 0.6);
-  border: none;
   padding-bottom: 15px;
   margin-bottom: 10px;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
 }
 
 .group-choice-form {
@@ -111,6 +107,7 @@ input:-webkit-autofill:active {
 
 .group-submit-button {
   background: #E98E4E;
+  margin-bottom: 5px;
   color: white;
   border-radius: 5px;
   padding: 7px;
@@ -133,6 +130,14 @@ input:-webkit-autofill:active {
   outline: 0;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.form-button:hover {
+  background: #d67632;
+}
+
+.form-button:active {
+  background: #bb5c18;
 }
 
 .analytics-display {

@@ -34,20 +34,15 @@ export class GroupSelect extends React.Component {
 		);
 		return(
 			<div className="group-select">
-				<div className="form-container">
-					<form className="group-choice-form" onSubmit={this.handleSubmit}>
-						<label>Choose a group from this list:</label>
-						<br/>
-						<select required onChange={this.handleChange} className="group-select-input" id="groups">
-							{groups}
-						</select>
-						<input className="group-submit-button" type="submit" />
-					</form>
-				</div>
-				<br/>
-				<div className="reset-button-container">
-					<button onClick={this.handleClick} className="reset-button">Choose another user</button>
-				</div>
+				<form className="group-choice-form" onSubmit={this.handleSubmit}>
+					<label>Choose a group from this list:</label>
+					<br/>
+					<select required onChange={this.handleChange} className="group-select-input" id="groups">
+						{groups}
+					</select>
+					<input className="form-button group-submit-button" type="submit" />
+				</form>
+				<button onClick={this.handleClick} className="form-button reset-button">Choose another user</button>
 			</div>
 		);
 	}
