@@ -78,14 +78,13 @@ body {
 }
 
 .group-select-input {
+  width: 70%;
   font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #ffffff;
-  width: 100%;
   border: 3px black;
   margin: 10px 0 10px;
   padding: 15px;
-  box-sizing: border-box;
   font-size: 14px;
 }
 
@@ -98,7 +97,6 @@ input:-webkit-autofill:active {
 }
 
 .group-select {
-  display: flex;
   justify-content: center;
   background: rgba(59, 68, 87, 0.6);
   border: none;
@@ -112,10 +110,11 @@ input:-webkit-autofill:active {
 }
 
 .group-submit-button {
-  background: #e6e8e8;
+  background: #E98E4E;
+  color: white;
   border-radius: 5px;
   padding: 7px;
-  width: 69%;
+  width: 70%;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   border: none;
   outline: 0;
@@ -124,11 +123,11 @@ input:-webkit-autofill:active {
 }
 
 .reset-button {
-  background: #e6e8e8;
+  background: #E98E4E;
+  color: white;
   border-radius: 5px;
   padding: 7px;
-  width: 151px;
-  height: 57px;
+  width: 70%;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   border: none;
   outline: 0;

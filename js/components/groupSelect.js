@@ -7,6 +7,7 @@ export class GroupSelect extends React.Component {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleSubmit(event) {
@@ -22,22 +23,31 @@ export class GroupSelect extends React.Component {
 		this.props.dispatch(actions.changeSelectedGroup(inputValue));
 	}
 
+	handleClick() {
+		console.log('clicked');
+		this.props.dispatch(actions.resetApp());
+	}
+
 	render() {
 		let groups = this.props.groups.map((groupObject, index) =>
 			<option key={index} value={groupObject.name}>{groupObject.name}</option>
 		);
 		return(
 			<div className="group-select">
-				<form className="group-choice-form" onSubmit={this.handleSubmit}>
-					<label>Choose a group from this list:</label>
-					<br/>
-					<select required onChange={this.handleChange} className="group-select-input" id="groups">
-						{groups}
-					</select>
-					<input className="group-submit-button" type="submit" />
-				</form>
+				<div className="form-container">
+					<form className="group-choice-form" onSubmit={this.handleSubmit}>
+						<label>Choose a group from this list:</label>
+						<br/>
+						<select required onChange={this.handleChange} className="group-select-input" id="groups">
+							{groups}
+						</select>
+						<input className="group-submit-button" type="submit" />
+					</form>
+				</div>
 				<br/>
-				<button className="reset-button" type="submit">Choose another user</button>
+				<div className="reset-button-container">
+					<button onClick={this.handleClick} className="reset-button">Choose another user</button>
+				</div>
 			</div>
 		);
 	}
