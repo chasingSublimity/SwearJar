@@ -18,11 +18,8 @@ body {
 
 .header {
   text-align: center;
-  background-color: #E98E4E;
-  box-shadow: 2px 2px 8px -2px rgba(0, 0, 0, 0.8);
   margin-top: 25px;
   font-size: 30px;
-  font-weight: bold;
 }
 
 .header-title {
@@ -46,8 +43,20 @@ body {
   right: 0;*/
 }
 
+.demo-button {
+  outline: 0;
+  background: #E98E4E;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
 .settings-modal-input {
-  font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -59,7 +68,6 @@ body {
 }
 
 .settings-modal-button {
-  font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #008B95;
@@ -73,13 +81,16 @@ body {
   cursor: pointer;
 }
 
-.settings-modal-button:hover,.form button:active,.form button:focus {
+.settings-modal-button:hover {
   background: #02737c;
+}
+
+.settings-modal-button:active {
+  background: #02545a;
 }
 
 .group-select-input {
   width: 70%;
-  font-family: "Open Sans", sans-serif;
   outline: 0;
   background: #ffffff;
   border: 3px black;
