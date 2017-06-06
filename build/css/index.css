@@ -90,12 +90,13 @@ body {
 }
 
 .group-select-input {
-  width: 70%;
+  display: block;
+  max-width: 400px;
+  width: 90%;
   outline: 0;
   background: #ffffff;
   border: 3px black;
-  margin: 10px 0 10px;
-  padding: 15px;
+  margin: 10px auto;
   font-size: 14px;
 }
 
@@ -116,29 +117,15 @@ input:-webkit-autofill:active {
   padding-top: 10px;
 }
 
-.group-submit-button {
+.group-select-button {
   background: #E98E4E;
   margin-bottom: 5px;
   color: white;
   border-radius: 5px;
   padding: 7px;
-  width: 70%;
+  width: 25%;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   border: none;
-  outline: 0;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.reset-button {
-  background: #E98E4E;
-  color: white;
-  border-radius: 5px;
-  padding: 7px;
-  width: 70%;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
-  border: none;
-  outline: 0;
   cursor: pointer;
   text-transform: uppercase;
 }
@@ -158,7 +145,6 @@ input:-webkit-autofill:active {
 
 .analytic {
   display: flex;
-  justify-content: flex-start;
   margin-bottom: 5px;
   background: #f7f7f7;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
@@ -172,13 +158,12 @@ input:-webkit-autofill:active {
   max-height: 42px;
   max-width: 42px;
   border-radius: 50%;
-  margin: 12px 10px;
+  margin: 12px 30px 0 0;
 }
 
 .container {
   display: flex;
   margin: auto;
-  justify-content: center;
   flex-direction: column;
   max-width: 400px;
 }
