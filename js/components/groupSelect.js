@@ -40,9 +40,9 @@ export class GroupSelect extends React.Component {
 					<select required onChange={this.handleChange} className="group-select-input" id="groups">
 						{groups}
 					</select>
-					<input className="form-button group-submit-button" type="submit" />
+					<input className="form-button group-select-button" type="submit" />
 				</form>
-				<button onClick={this.handleClick} className="form-button reset-button">Choose another user</button>
+				<button onClick={this.handleClick} className="form-button group-select-button">Choose another user</button>
 			</div>
 		);
 	}
