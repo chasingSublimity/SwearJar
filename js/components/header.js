@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 
 	render() {
 		return(
-			<div className="header grey-box">
+			<div className="header">
 				<h2 className="header-title">SwearJar</h2>
 			</div>
 		);
