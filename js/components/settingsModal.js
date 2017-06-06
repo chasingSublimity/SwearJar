@@ -44,14 +44,13 @@ export class SettingsModal extends React.Component {
 					<h3>Hey there!</h3>
 					<p>Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
 					member has the highest affinity for four-letter words</p>
+					<button className="demo-button" onClick={this.handleClick}>Click Here To See A Demo!</button>
 					<p>Enter your GroupMe API Key below to get started!</p>
 					<form className="settings-form" onSubmit={this.handleSubmit}>
 						<input className="settings-modal-input" required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
 						<input className="settings-modal-button"type="submit" />
 					</form>
 					<p>Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
-					<p>Don't feel like signing up?</p>
-					<a href="#" onClick={this.handleClick}>Click here to see a demo!</a>
 				</div>
 			</Modal>
 		);
