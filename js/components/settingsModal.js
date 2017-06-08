@@ -48,9 +48,17 @@ export class SettingsModal extends React.Component {
 					<p>Enter your GroupMe API Key below to get started!</p>
 					<form className="settings-form" onSubmit={this.handleSubmit}>
 						<input className="settings-modal-input" required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
-						<input className="settings-modal-button"type="submit" />
+						<input className="settings-modal-button" type="submit" />
 					</form>
 					<p>Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
+					<div className="modal-footer">
+						<p>
+							Built by Blake Sager
+							<a href="https://github.com/chasingSublimity/SwearJar">
+								<i className="fa fa-github fa-lg gh-icon" aria-hidden="true"></i>
+							</a>
+						</p>
+					</div>
 				</div>
 			</Modal>
 		);
