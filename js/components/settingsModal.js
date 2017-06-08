@@ -44,12 +44,23 @@ export class SettingsModal extends React.Component {
 					<h3>Hey there!</h3>
 					<p>Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
 					member has the highest affinity for four-letter words</p>
+					<p>
+						As a relatively new parent, I am simultaneously amazed and horrified by 
+						the rate at which my toddler is learning. I initially built this app so 
+						that I could get a simple gauge at the amount of profanity I use on a regular basis. 
+						The app allows the user to see the members of their different chat groups, 
+						ranked by profanity usage.
+					</p>
 					<button className="demo-button" onClick={this.handleClick}>Click Here To See A Demo!</button>
-					<p>Enter your GroupMe API Key below to get started!</p>
+					<p>
+						Interesting in gauging your own usage? 
+						Want to objectively secure the bragging rights? 
+						Enter your API key below and view your results!
+					</p>
 					<form className="settings-form" onSubmit={this.handleSubmit}>
 						<input className="settings-modal-input" required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
 						<input className="settings-modal-button" type="submit" />
-					</form>
+					</form>	
 					<p>Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
 					<div className="modal-footer">
 						<p>
