@@ -28,19 +28,18 @@ body {
 
 .settings-modal {
   background: #FFFFFF;
-  max-width: 360px;
-  margin: 15px auto 50px;
+  margin: 15px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.8);
   color: black;
   /*These settings will make the modal fill the entire screen.
   Useful for when the modal becomes a landing page*/
-  /*position: absolute;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;*/
+  right: 0;
 }
 
 .demo-button {
@@ -54,6 +53,14 @@ body {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.demo-button:hover {
+  background: #b9713e
+}
+
+.demo-button:active {
+  background: #8e572f;
 }
 
 .settings-modal-input {
@@ -168,12 +175,13 @@ input:-webkit-autofill:active {
   max-width: 400px;
 }
 
-footer {
+.modal-footer {
   text-align: center;
-  min-height: 100%;
-  margin-bottom: -50px
+  color: black;
+  font-family: Roboto;
 }
 
-footer > a {
-  height: 50px;
+.gh-icon {
+  margin-left: 7px;
+  color: black;
 }
