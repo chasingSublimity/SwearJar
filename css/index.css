@@ -45,7 +45,7 @@ body {
 .demo-button {
   outline: 0;
   background: #E98E4E;
-  width: 100%;
+  width: 45%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -66,7 +66,7 @@ body {
 .settings-modal-input {
   outline: 0;
   background: #f2f2f2;
-  width: 100%;
+  width: 45%;
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
@@ -78,7 +78,7 @@ body {
   text-transform: uppercase;
   outline: 0;
   background: #008B95;
-  width: 100%;
+  width: 45%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
