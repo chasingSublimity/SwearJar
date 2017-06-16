@@ -42,6 +42,11 @@ body {
   right: 0;
 }
 
+.modal-text {
+  max-width: 500px;
+  margin: 16px auto;
+}
+
 .demo-button {
   outline: 0;
   background: #E98E4E;

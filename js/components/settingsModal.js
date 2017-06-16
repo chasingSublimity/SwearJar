@@ -42,9 +42,9 @@ export class SettingsModal extends React.Component {
 			<Modal className="settings-modal" isOpen={this.props.isModalOpen} contentLabel="Modal">
 				<div>
 					<h3>Hey there!</h3>
-					<p>Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
+					<p className="modal-text">Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
 					member has the highest affinity for four-letter words</p>
-					<p>
+					<p className="modal-text">
 						As a relatively new parent, I am simultaneously amazed and horrified by 
 						the rate at which my toddler is learning. I initially built this app so 
 						that I could get a simple gauge at the amount of profanity I use on a regular basis. 
@@ -52,7 +52,7 @@ export class SettingsModal extends React.Component {
 						ranked by profanity usage.
 					</p>
 					<button className="demo-button" onClick={this.handleClick}>Click Here To See A Demo!</button>
-					<p>
+					<p className="modal-text">
 						Interesting in gauging your own usage? 
 						Want to objectively secure the bragging rights? 
 						Enter your API key below and view your results!
@@ -61,7 +61,7 @@ export class SettingsModal extends React.Component {
 						<input className="settings-modal-input" required id="api-key" placeholder="API Key" onChange={this.handleChange} type="text"/><br/>
 						<input className="settings-modal-button" type="submit" />
 					</form>	
-					<p>Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
+					<p className="modal-text">Don't have an API key? <a href='https://dev.groupme.com/'>Click here to get one!</a></p>
 					<div className="modal-footer">
 						<p>
 							Built by Blake Sager
