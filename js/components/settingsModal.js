@@ -41,7 +41,7 @@ export class SettingsModal extends React.Component {
 		return(
 			<Modal className="settings-modal" isOpen={this.props.isModalOpen} contentLabel="Modal">
 				<div>
-					<h3>Hey there!</h3>
+					<h1>Hey there!</h1>
 					<p className="modal-text">Welcome to SwearJar, the React SPA that allows GroupMe users to see which 
 					member has the highest affinity for four-letter words</p>
 					<p className="modal-text">
@@ -53,7 +53,7 @@ export class SettingsModal extends React.Component {
 					</p>
 					<button className="demo-button" onClick={this.handleClick}>Click Here To See A Demo!</button>
 					<p className="modal-text">
-						Interesting in gauging your own usage? 
+						Interested in gauging your own usage? 
 						Want to objectively secure the bragging rights? 
 						Enter your API key below and view your results!
 					</p>
